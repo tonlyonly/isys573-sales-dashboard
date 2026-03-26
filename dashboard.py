@@ -63,7 +63,11 @@ def build_region_bar(df: pd.DataFrame) -> go.Figure:
         title="Revenue by Region",
         plot_bgcolor="white",
         yaxis=dict(tickprefix="$", tickformat=",.0f", title="Total Revenue ($)"),
-        xaxis=dict(title="Region"),
+        xaxis=dict(
+            title="Region",
+            categoryorder="array",
+            categoryarray=summary["region"].tolist(),
+        ),
         showlegend=False,
         margin=dict(t=50, b=30),
     )
